@@ -124,7 +124,6 @@ class App extends Component {
         </header>
         <h2>How Popular is Your Favorite Movie?</h2>
         <MoviesDashboard
-          profiles={profiles}
           movies={movies}
           users={users}
           usersByMovie={this.usersByMovie}
