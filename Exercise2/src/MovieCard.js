@@ -1,8 +1,8 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
 
 class MovieCard extends Component {
     render() {
-        const {users, usersWhoLikedMovie, movieInfo} = this.props;
+        const { users, usersWhoLikedMovie, movieInfo } = this.props;
 
         return (
             <li key={movieInfo.id}>
@@ -14,7 +14,7 @@ class MovieCard extends Component {
                 ) : (
                     <ul>
                         {usersWhoLikedMovie &&
-                        usersWhoLikedMovie.map(userId => {
+                        usersWhoLikedMovie.map((userId) => {
                             return (
                                 <li key={userId}>
                                     <p>{users[userId].name}</p>
