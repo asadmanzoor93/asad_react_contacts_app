@@ -21,7 +21,7 @@ class App extends Component {
   */
   state = {
     correctAnswer: 0,
-    numQuestions: 0,
+    numQuestions: 0
   };
 
   /*
@@ -82,14 +82,14 @@ class App extends Component {
  }
   */
 
-  handleAnswer = answerWasCorrect => {
+  handleAnswer = (answerWasCorrect) => {
     if (answerWasCorrect) {
-      this.setState(currState => ({
-        correctAnswer: currState.correctAnswer + 1,
+      this.setState((currState) => ({
+        correctAnswer: currState.correctAnswer + 1
       }));
     }
-    this.setState(currState => ({
-      numQuestions: currState.numQuestions + 1,
+    this.setState((currState) => ({
+      numQuestions: currState.numQuestions + 1
     }));
   };
 

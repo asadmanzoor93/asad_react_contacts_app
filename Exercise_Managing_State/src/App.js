@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-const value1 = Math.floor(Math.random() * 100);
-const value2 = Math.floor(Math.random() * 100);
-const value3 = Math.floor(Math.random() * 100);
-const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;
-const numQuestions = 0;
-const numCorrect = 0;
+import GameDashboard from './GameDashboard';
 
 class App extends Component {
+  state = {
+    correctAnswer: 0,
+    totalQuestions: 0
+  };
+
+  answerHandler = (correctAnswer) => {
+    if (correctAnswer) {
+      this.setState((prevState) => ({
+        correctAnswer: prevState.correctAnswer + 1
+      }));
+    }
+    this.setState((prevState) => ({
+      totalQuestions: prevState.totalQuestions + 1
+    }));
+  };
+
   render() {
     return (
       <div className="App">
@@ -19,13 +29,9 @@ class App extends Component {
         </header>
         <div className="game">
           <h2>Mental Math</h2>
-          <div className="equation">
-            <p className="text">{`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}</p>
-          </div>
-          <button>True</button>
-          <button>False</button>
+          <GameDashboard answerHandler={this.answerHandler} />
           <p className="text">
-            Your Score: {numCorrect}/{numQuestions}
+            Your Score: {this.state.correctAnswer}/{this.state.totalQuestions}
           </p>
         </div>
       </div>
