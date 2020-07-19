@@ -9,8 +9,8 @@ class App extends Component {
     totalQuestions: 0
   };
 
-  answerHandler = (correctAnswer) => {
-    if (correctAnswer) {
+  answerHandler = (userAnswerCorrect) => {
+    if (userAnswerCorrect) {
       this.setState((prevState) => ({
         correctAnswer: prevState.correctAnswer + 1
       }));
